@@ -1,5 +1,5 @@
 
-file=open(r"przyklad.txt")
+file=open(r"C:\Users\Przemek\Desktop\matura informatyka\maj 2022\przyklad.txt")
 file=file.read().splitlines()
 
 ###########Zad 4.1############
@@ -50,33 +50,24 @@ def max_prime_factors(numbers):
 
 
 def search_divable_number(number,file):
+    dividers=[]
     for num in file:
         if int(num)%int(number)==0 and int(num)!=number:
-            return int(num)
-    return None
-            
-good_5=[]
-good_3=[]
-for number in file:
-    numbers=[]
-    divider=int(number)
-    numbers.append(divider)
-    while True:
-        next_number=search_divable_number(divider, file)
-        print(next_number)
-        if next_number!=None:
-            numbers.append(next_number)
-            divider=next_number
-        elif len(numbers)==3:
-            good_3.append(numbers)
-            break
-        elif len(numbers)==5:
-            good_5.append(numbers)
-            break
-        else:
-            break
-        
-        
-            
-print(good_5)
-print(good_3)
+            dividers.append(int(num))
+    if len(dividers)==0:
+        return None
+    return dividers
+
+# def good_numbers(length):
+#     good_numbers=[]
+#     for number in file:
+#         current_numbers=[]
+#         if len(current_numbers)==0:
+#             current_numbers.append(number)
+#             continue
+#         while len(good_numbers)==length:
+#             for num in search_divable_number(int(number), file):
+
+#                 while len(good_numbers)==length:
+
+# print(good_numbers(3))
